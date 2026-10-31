@@ -805,3 +805,15 @@ footer p,
         font-size: 0.75rem;
     }
 }
+/* Ensure hidden elements remain hidden */
+[hidden] {
+    display: none !important;
+}
+
+.profile-placeholder[hidden] {
+    display: none !important;
+}
+
+#profile-photo[hidden] {
+    display: none !important;
+}
