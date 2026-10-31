@@ -71,15 +71,20 @@
                 </p>
             </div>
 
-      
-            <div class="hero-profile">
+            <div class="profile-area">
+                <div class="profile-glow"></div>
+
                 <div class="profile-frame">
+                    <div class="profile-placeholder" id="profile-placeholder">
+                        <span>SM</span>
+                        <small>PHOTO COMING SOON</small>
+                    </div>
+
                     <img
                         id="profile-photo"
-                        src="./stacy.jpg"
-                        alt="Photo of Stacy Macharia"
-                        style="display: block; width: 100%; height: 100%; object-fit: cover;"
-                    >
+                        src="images/stacy.jpg"
+                        alt="Portrait of Stacy Macharia"
+                        hidden>
                 </div>
 
                 <div class="floating-tag tag-top">
@@ -92,9 +97,56 @@
                     Open to learning
                 </div>
             </div>
-      
+        </section>
 
+        <!-- INTERACTIVE DEVELOPER TERMINAL -->
+        <section class="section terminal-section" id="terminal">
 
+            <!-- Terminal heading -->
+            <div class="section-heading">
+                <p class="eyebrow">01 / EXPLORE MY WORLD</p>
+                <h2>A little command-line magic.</h2>
+                <p class="section-intro">
+                    Curious about my work? Type a command below
+                    and explore my portfolio.
+                </p>
+            </div>
+
+            <!-- Terminal window -->
+            <div class="terminal-window">
+                <div class="terminal-topbar">
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="terminal-title">stacy@portfolio:~</span>
+                </div>
+
+                <div class="terminal-body">
+                    <div id="terminal-output" class="terminal-output"
+                         aria-live="polite">
+                        <p>Welcome to Stacy's interactive terminal.</p>
+                        <p>Type <span class="terminal-highlight">help</span>
+                        to see the available commands.</p>
+                    </div>
+
+                    <form id="terminal-form" class="terminal-input-line">
+                        <label for="terminal-input">
+                            <span class="terminal-prompt">visitor@stacy:~$</span>
+                        </label>
+                        <input id="terminal-input"
+                               type="text"
+                               placeholder="Type a command..."
+                               autocomplete="off"
+                               spellcheck="false">
+                    </form>
+                </div>
+            </div>
+
+            <p class="terminal-hint">
+                Try: help · about · skills · projects · contact · clear
+            </p>
         </section>
 
         <section class="section about-section" id="about">
@@ -278,34 +330,27 @@
                 </article>
             </div>
         </section>
-<section class="contact-section" id="contact">
-    <p class="eyebrow">05 / LET'S CONNECT</p>
 
-    <h2>Good things start<br>with a conversation.</h2>
+        <section class="contact-section" id="contact">
+            <p class="eyebrow">05 / LET'S CONNECT</p>
+            <h2>Good things start<br>with a conversation.</h2>
 
-    <p>
-        Interested in my work, have a project idea, or want to connect
-        about technology? I'd love to hear from you.
-    </p>
+            <p>
+                Interested in my work, have a project idea, or want
+                to connect about technology? Find me on GitHub.
+            </p>
 
-    <div class="contact-actions">
-        <a class="button button-primary"
-           href="https://github.com/StacyMacharia-n"
-           target="_blank"
-           rel="noopener noreferrer">
-            Explore my GitHub ↗
-        </a>
+            <a class="button button-primary"
+               href="https://github.com/StacyMacharia-n"
+               target="_blank"
+               rel="noopener noreferrer">
+                Find me on GitHub ↗
+            </a>
 
-        <a class="button button-secondary" href="#projects">
-            Explore my projects ↓
-        </a>
-    </div>
-
-    <p class="small-note">
-        Computer Science student · Software Development · Cybersecurity
-    </p>
-</section>
-
+            <p class="small-note">
+                Add your professional email here when you're ready.
+            </p>
+        </section>
     </main>
 
     <footer>

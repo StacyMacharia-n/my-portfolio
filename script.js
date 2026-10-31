@@ -1,22 +1,29 @@
-
 const GITHUB_USERNAME = "StacyMacharia-n";
 
 const gallery = document.getElementById("repo-gallery");
 const statusMessage = document.getElementById("repo-status");
-
 const profilePhoto = document.getElementById("profile-photo");
 const profilePlaceholder = document.getElementById("profile-placeholder");
 
-// Show the photo only if the image file exists.
-profilePhoto.addEventListener("load", () => {
-    profilePlaceholder.hidden = true;
-    profilePhoto.hidden = false;
-});
 
-profilePhoto.addEventListener("error", () => {
-    profilePhoto.hidden = true;
-    profilePlaceholder.hidden = false;
-});
+// Show the photo only if the image file exists.
+if (profilePhoto) {
+    profilePhoto.addEventListener("load", () => {
+        if (profilePlaceholder) {
+            profilePlaceholder.hidden = true;
+        }
+
+        profilePhoto.hidden = false;
+    });
+
+    profilePhoto.addEventListener("error", () => {
+        profilePhoto.hidden = true;
+
+        if (profilePlaceholder) {
+            profilePlaceholder.hidden = false;
+        }
+    });
+}
 
 // Create a page element safely using textContent.
 function makeElement(tag, className, text) {
@@ -111,4 +118,91 @@ async function loadRepositories() {
 }
 
 loadRepositories();
+// =====================================
+// INTERACTIVE DEVELOPER TERMINAL
+// =====================================
 
+const terminalForm = document.getElementById("terminal-form");
+const terminalInput = document.getElementById("terminal-input");
+const terminalOutput = document.getElementById("terminal-output");
+
+if (terminalForm && terminalInput && terminalOutput) {
+
+    const commands = {
+        help: `
+            <p class="terminal-highlight">AVAILABLE COMMANDS</p>
+            <p>about - Learn about Stacy</p>
+            <p>skills - Explore technical skills</p>
+            <p>projects - View my projects</p>
+            <p>contact - Find my GitHub profile</p>
+            <p>clear - Clear the terminal</p>
+            <p>help - Display available commands</p>
+        `,
+
+        about: `
+            <p class="terminal-highlight">ABOUT STACY</p>
+            <p>Hello! I'm Stacy Macharia, a Computer Science student.</p>
+            <p>I'm interested in software development, cybersecurity,
+            and building useful technology.</p>
+            <p>I'm always learning and working on new projects.</p>
+        `,
+
+        skills: `
+            <p class="terminal-highlight">MY TECHNICAL TOOLKIT</p>
+            <p>Programming: Python</p>
+            <p>Web development: HTML, CSS</p>
+            <p>Databases: SQLite</p>
+            <p>Tools: VS Code, Git, GitHub</p>
+            <p>Currently developing my skills through practical projects.</p>
+        `,
+
+        projects: `
+            <p class="terminal-highlight">FEATURED PROJECT</p>
+            <p>Lost & Found Management System</p>
+            <p>A Python and SQLite application for reporting lost
+            items, finding matches, managing claims, and notifications.</p>
+            <p><a href="https://github.com/StacyMacharia-n/Lost-and-Found-System"
+            target="_blank" rel="noopener noreferrer"
+            class="terminal-highlight">Open project on GitHub ↗</a></p>
+            <p><a href="#projects" class="terminal-highlight">
+            Visit project gallery ↓</a></p>
+        `,
+
+        contact: `
+            <p class="terminal-highlight">LET'S CONNECT!</p>
+            <p>Thank you for exploring my portfolio.</p>
+            <p><a href="https://github.com/StacyMacharia-n"
+            target="_blank" rel="noopener noreferrer"
+            class="terminal-highlight">Visit my GitHub profile ↗</a></p>
+        `
+    };
+
+    terminalForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const command = terminalInput.value.trim().toLowerCase();
+
+        if (!command) return;
+
+        const commandLine = document.createElement("p");
+        commandLine.textContent = "visitor@stacy:~$ " + command;
+        terminalOutput.appendChild(commandLine);
+
+        if (command === "clear") {
+            terminalOutput.innerHTML = "";
+        } else if (commands[command]) {
+            terminalOutput.insertAdjacentHTML(
+                "beforeend",
+                commands[command]
+            );
+        } else {
+            const errorMessage = document.createElement("p");
+            errorMessage.textContent =
+                "Command not found. Type 'help' to see available commands.";
+            terminalOutput.appendChild(errorMessage);
+        }
+
+        terminalInput.value = "";
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    });
+}
