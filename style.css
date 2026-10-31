@@ -741,3 +741,39 @@ footer p,
         max-width: 280px;
     }
 }
+
+/* Navigation layout improvement */
+.site-header {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.site-header nav a,
+.site-header .header-link {
+    white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+    .site-header {
+        justify-content: center;
+        padding: 17px 4%;
+    }
+
+    .site-header nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
