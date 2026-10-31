@@ -5,25 +5,36 @@ const statusMessage = document.getElementById("repo-status");
 const profilePhoto = document.getElementById("profile-photo");
 const profilePlaceholder = document.getElementById("profile-placeholder");
 
-
-// Show the photo only if the image file exists.
+// Display the profile photo when it loads successfully.
 if (profilePhoto) {
-    profilePhoto.addEventListener("load", () => {
+    function showProfilePhoto() {
+        profilePhoto.hidden = false;
+
         if (profilePlaceholder) {
             profilePlaceholder.hidden = true;
         }
+    }
 
-        profilePhoto.hidden = false;
-    });
-
-    profilePhoto.addEventListener("error", () => {
+    function showProfilePlaceholder() {
         profilePhoto.hidden = true;
 
         if (profilePlaceholder) {
             profilePlaceholder.hidden = false;
         }
-    });
+    }
+
+    profilePhoto.addEventListener("load", showProfilePhoto);
+    profilePhoto.addEventListener("error", showProfilePlaceholder);
+
+    if (profilePhoto.complete) {
+        if (profilePhoto.naturalWidth > 0) {
+            showProfilePhoto();
+        } else {
+            showProfilePlaceholder();
+        }
+    }
 }
+
 
 // Create a page element safely using textContent.
 function makeElement(tag, className, text) {
