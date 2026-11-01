@@ -267,3 +267,88 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+// PROJECT DETAILS POP-UP FUNCTIONALITY
+
+const projectDetails = {
+    "lost-found": {
+        title: "Lost and Found Items Management System",
+        description: `
+            <p>A Python-based system designed to help people report lost and found
+            belongings and identify possible matches.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>User registration and login</li>
+                <li>Reporting lost and found items</li>
+                <li>Automated item matching with similarity scores</li>
+                <li>Item claiming and administrator approval</li>
+                <li>Notifications and item image viewing</li>
+                <li>Search and reporting features</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <p>Python, SQLite and Tkinter.</p>
+
+            <p><strong>What I learned:</strong> Database management,
+            authentication, problem-solving and building practical
+            software solutions.</p>
+        `
+    },
+
+    "portfolio": {
+        title: "Personal Developer Portfolio Website",
+        description: `
+            <p>A personal website showcasing my skills, projects,
+            achievements and interests in software development and cybersecurity.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Responsive dark-themed design</li>
+                <li>Interactive developer terminal</li>
+                <li>Automatic GitHub project gallery</li>
+                <li>CV download and certificates section</li>
+                <li>Experience and community service gallery</li>
+                <li>Interactive project image viewer</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <p>HTML, CSS and JavaScript.</p>
+
+            <p><strong>What I learned:</strong> Web development,
+            responsive design, JavaScript interactivity and GitHub Pages deployment.</p>
+        `
+    }
+};
+
+const projectModal = document.getElementById("project-details-modal");
+const modalTitle = document.getElementById("modal-project-title");
+const modalDescription = document.getElementById("modal-project-description");
+const closeProjectModal = document.getElementById("close-project-modal");
+
+document.querySelectorAll(".project-details-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        const project = projectDetails[this.dataset.project];
+
+        if (project) {
+            modalTitle.textContent = project.title;
+            modalDescription.innerHTML = project.description;
+            projectModal.style.display = "flex";
+        }
+    });
+});
+
+closeProjectModal.addEventListener("click", function () {
+    projectModal.style.display = "none";
+});
+
+projectModal.addEventListener("click", function (event) {
+    if (event.target === projectModal) {
+        projectModal.style.display = "none";
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        projectModal.style.display = "none";
+    }
+});
