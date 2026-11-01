@@ -1023,3 +1023,147 @@ footer p,
         height: 140px;
     }
 }
+
+/* FEATURED PROJECT CARDS */
+
+.featured-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.project-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(130, 120, 255, 0.2);
+    border-radius: 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #8b7cff;
+}
+
+.project-visual {
+    min-height: 210px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #111d38, #30245c);
+}
+
+.portfolio-visual {
+    background: linear-gradient(135deg, #101c30, #203e64);
+}
+
+.visual-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.visual-symbol {
+    font-size: 55px;
+    font-weight: bold;
+    color: #a99cff;
+    margin: 12px 0;
+}
+
+.project-visual h3 {
+    font-size: 23px;
+    margin: 5px 0;
+}
+
+.project-visual p {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.project-card-content {
+    padding: 25px;
+}
+
+.project-card-content h3 {
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+.project-card-content h4 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.project-card-content p {
+    line-height: 1.7;
+}
+
+.project-card-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.project-card-content li {
+    margin-bottom: 9px;
+    line-height: 1.5;
+}
+
+.project-card-content .text-link {
+    display: inline-block;
+    margin: 12px 15px 0 0;
+}
+
+@media (max-width: 750px) {
+    .featured-projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* PROJECT SCREENSHOTS */
+
+.project-image {
+    padding: 12px;
+    min-height: 210px;
+    overflow: hidden;
+    background: #101827;
+}
+
+.project-image img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+/* LOST AND FOUND SCREENSHOT GALLERY */
+
+.project-screenshots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.project-screenshots img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    background: #101827;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+    .project-screenshots {
+        grid-template-columns: 1fr;
+    }
+
+    .project-screenshots img {
+        height: 200px;
+    }
+}
