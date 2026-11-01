@@ -217,3 +217,53 @@ if (terminalForm && terminalInput && terminalOutput) {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
     });
 }
+// PROJECT IMAGE CLICK-TO-ENLARGE FEATURE
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const projectImages = document.querySelectorAll(".enlargeable-image");
+
+    projectImages.forEach(function (image) {
+
+        image.addEventListener("click", function () {
+
+            const lightbox = document.createElement("div");
+            lightbox.className = "image-lightbox";
+
+            const enlargedImage = document.createElement("img");
+            enlargedImage.src = image.src;
+            enlargedImage.alt = image.alt;
+
+            const closeButton = document.createElement("button");
+            closeButton.innerHTML = "&times;";
+            closeButton.setAttribute("aria-label", "Close enlarged image");
+
+            lightbox.appendChild(enlargedImage);
+            lightbox.appendChild(closeButton);
+
+            document.body.appendChild(lightbox);
+
+            function closeLightbox() {
+                lightbox.remove();
+            }
+
+            closeButton.addEventListener("click", closeLightbox);
+
+            lightbox.addEventListener("click", function (event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener("keydown", function handleEscape(event) {
+                if (event.key === "Escape") {
+                    closeLightbox();
+                    document.removeEventListener("keydown", handleEscape);
+                }
+            });
+
+        });
+
+    });
+
+});
