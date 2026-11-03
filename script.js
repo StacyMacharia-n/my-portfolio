@@ -391,3 +391,30 @@ if (contactForm) {
         }
     });
 }
+
+/* ANIMATED SKILL BARS */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const skillSection = document.querySelector("#skills");
+    const skillBars = document.querySelectorAll(".proficiency-fill");
+
+    if (!skillSection || skillBars.length === 0) return;
+
+    const observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                skillBars.forEach(function (bar) {
+                    const level = bar.dataset.level;
+                    bar.style.width = level + "%";
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    observer.observe(skillSection);
+});
+

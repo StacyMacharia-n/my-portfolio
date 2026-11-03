@@ -1358,3 +1358,108 @@ footer p,
         width: 100%;
     }
 }
+
+/* ANIMATED SKILL PROFICIENCY BARS */
+
+.skill-proficiency {
+    max-width: 750px;
+    margin: 45px auto 25px;
+    padding: 30px;
+    background: #111b30;
+    border: 1px solid rgba(100, 130, 255, 0.25);
+    border-radius: 16px;
+}
+
+.skill-proficiency h3 {
+    color: #8ba8ff;
+    margin-bottom: 10px;
+}
+
+.proficiency-item {
+    margin-top: 25px;
+}
+
+.proficiency-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.proficiency-label span:last-child {
+    color: #aab9e8;
+}
+
+.proficiency-track {
+    width: 100%;
+    height: 10px;
+    background: #26334d;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.proficiency-fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4776ff, #a56bff);
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .skill-proficiency {
+        padding: 20px;
+    }
+
+    .proficiency-label {
+        font-size: 13px;
+    }
+}
+
+/* CAREER DIRECTION SECTION */
+
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.career-card {
+    background: #111b30;
+    border: 1px solid rgba(100, 130, 255, 0.25);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.career-card:hover {
+    transform: translateY(-7px);
+    border-color: #8ba8ff;
+    box-shadow: 0 12px 30px rgba(80, 120, 255, 0.15);
+}
+
+.career-card h3 {
+    color: #8ba8ff;
+    margin: 20px 0 12px;
+}
+
+.career-card p {
+    color: #c2cce2;
+    line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+    .career-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+}
