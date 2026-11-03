@@ -352,3 +352,42 @@ document.addEventListener("keydown", function (event) {
         projectModal.style.display = "none";
     }
 });
+
+// CONTACT FORM SUBMISSION
+const contactForm = document.getElementById("contact-form");
+const contactStatus = document.getElementById("contact-status");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const submitButton = contactForm.querySelector("button[type='submit']");
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            if (response.ok) {
+                contactStatus.textContent = "Thank you! Your message has been sent successfully.";
+                contactStatus.style.color = "#7ee7a8";
+                contactForm.reset();
+            } else {
+                contactStatus.textContent = "Sorry, your message could not be sent. Please try again.";
+                contactStatus.style.color = "#ff8585";
+            }
+        } catch (error) {
+            contactStatus.textContent = "Connection error. Please check your internet and try again.";
+            contactStatus.style.color = "#ff8585";
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message ↗";
+        }
+    });
+}

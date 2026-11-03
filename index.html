@@ -620,26 +620,60 @@
     </div>
 </section>
 
-        <section class="contact-section" id="contact">
-            <p class="eyebrow">05 / LET'S CONNECT</p>
-            <h2>Good things start<br>with a conversation.</h2>
+        
+<section class="contact-section" id="contact">
+    <p class="eyebrow">05 / LET'S CONNECT</p>
+    <h2>Good things start<br>with a conversation.</h2>
 
-            <p>
-                Interested in my work, have a project idea, or want
-                to connect about technology? Find me on GitHub.
-            </p>
+    <p>
+        Interested in my work, have a project idea, or want
+        to connect about technology? I'd love to hear from you.
+    </p>
 
-            <a class="button button-primary"
-               href="https://github.com/StacyMacharia-n"
-               target="_blank"
-               rel="noopener noreferrer">
-                Find me on GitHub ↗
-            </a>
+    <div class="contact-form-container">
+        <form id="contact-form"
+      action="https://formspree.io/f/xyeebapk"
+      method="POST">
+            <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name"
+                       name="name" placeholder="Enter your name" required>
+            </div>
 
-            <p class="small-note">
-                Add your professional email here when you're ready.
-            </p>
-        </section>
+            <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email"
+                       name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <input type="text" id="contact-subject"
+                       name="subject" placeholder="What is this about?" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">Your Message</label>
+                <textarea id="contact-message" name="message"
+                          rows="6" placeholder="Write your message here..."
+                          required></textarea>
+            </div>
+
+            <button type="submit" class="button button-primary">
+                Send Message ↗
+            </button>
+
+            <p id="contact-status" class="small-note"></p>
+        </form>
+    </div>
+
+    <p class="small-note">
+        You can also connect with me on
+        <a href="https://github.com/StacyMacharia-n"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </p>
+</section>
+
     </main>
 
     <footer>
